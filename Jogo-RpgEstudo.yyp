@@ -1,9 +1,18 @@
 {
   "resources": [
-    {"id":{"name":"sprPlayer","path":"sprites/sprPlayer/sprPlayer.yy",},"order":0,},
     {"id":{"name":"antComandosGit","path":"notes/antComandosGit/antComandosGit.yy",},"order":1,},
+    {"id":{"name":"sprParadoEsquerda","path":"sprites/sprParadoEsquerda/sprParadoEsquerda.yy",},"order":8,},
+    {"id":{"name":"sprCorrendoDireita","path":"sprites/sprCorrendoDireita/sprCorrendoDireita.yy",},"order":3,},
+    {"id":{"name":"objParede","path":"objects/objParede/objParede.yy",},"order":0,},
+    {"id":{"name":"sprParadoDireira","path":"sprites/sprParadoDireira/sprParadoDireira.yy",},"order":7,},
+    {"id":{"name":"sprCorrendoBaixo","path":"sprites/sprCorrendoBaixo/sprCorrendoBaixo.yy",},"order":1,},
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"order":6,},
+    {"id":{"name":"sprParede","path":"sprites/sprParede/sprParede.yy",},"order":0,},
+    {"id":{"name":"sprParadoCima","path":"sprites/sprParadoCima/sprParadoCima.yy",},"order":6,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"sprCorrendoEsquerda","path":"sprites/sprCorrendoEsquerda/sprCorrendoEsquerda.yy",},"order":4,},
+    {"id":{"name":"sprParadoBaixo","path":"sprites/sprParadoBaixo/sprParadoBaixo.yy",},"order":5,},
+    {"id":{"name":"sprCorrendoCima","path":"sprites/sprCorrendoCima/sprCorrendoCima.yy",},"order":2,},
     {"id":{"name":"antFuncoesUteis","path":"notes/antFuncoesUteis/antFuncoesUteis.yy",},"order":2,},
   ],
   "Options": [
@@ -46,6 +55,8 @@
     {"folderPath":"folders/Objetos/Itens.yy","order":4,"resourceVersion":"1.0","name":"Itens","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Itens.yy","order":6,"resourceVersion":"1.0","name":"Itens","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Objetos/Controladores.yy","order":5,"resourceVersion":"1.0","name":"Controladores","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Sprites/Cenario.yy","order":7,"resourceVersion":"1.0","name":"Cenario","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Objetos/Cenario.yy","order":7,"resourceVersion":"1.0","name":"Cenario","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
