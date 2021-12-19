@@ -9,3 +9,8 @@ hVeloc = 0;
 vVeloc = 0;
 veloc = 2;
 dir = 0;
+
+direcaoTransporte = -1
+velocidadeTransporte = 6;
+
+estado = MovimentoPlayer;

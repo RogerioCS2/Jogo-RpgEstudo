@@ -1,0 +1,2 @@
+/// @description
+estado = MovimentoPlayer;

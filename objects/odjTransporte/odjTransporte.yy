@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "sprParadoBaixo",
-    "path": "sprites/sprParadoBaixo/sprParadoBaixo.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -23,8 +20,6 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -33,7 +28,7 @@
     "path": "folders/Objetos/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objPlayer",
+  "name": "odjTransporte",
   "tags": [],
   "resourceType": "GMObject",
 }
