@@ -1,26 +1,14 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function MovimentoPlayer(){
-	cima = keyboard_check(vk_up);
-	baixo = keyboard_check(vk_down);
-	direita = keyboard_check(vk_right);
-	esquerda = keyboard_check(vk_left);
-
-	hVeloc = (direita - esquerda) * veloc;
-	vVeloc = (baixo - cima) * veloc;
-	
-	/*
-	
-	*/
-
-	if( place_meeting(x + hVeloc, y, objParede)){
+function PlayerColisao(){
+	if(place_meeting(x + hVeloc, y, objParede)){
 		while !place_meeting(x + sign(hVeloc), y, objParede){
 			x += sign(hVeloc);			
 		}
 		hVeloc = 0;	
 	}
 
-	if( place_meeting(x, y + vVeloc, objParede)){
+	if(place_meeting(x, y + vVeloc, objParede)){
 		while !place_meeting(x, y + sign(hVeloc), objParede){
 			y += sign(vVeloc);			
 		}
@@ -29,8 +17,38 @@ function MovimentoPlayer(){
 
 	x += hVeloc;
 	y += vVeloc;
+}
 
-	dir = floor((point_direction(x, y, mouse_x, mouse_y) +45) / 90);
+
+function MovimentoPlayer(){
+	cima = keyboard_check(vk_up);
+	baixo = keyboard_check(vk_down);
+	direita = keyboard_check(vk_right);
+	esquerda = keyboard_check(vk_left);
+	
+	/*
+	MOVIMENTO VERSÃO ANTERIOR
+		hVeloc = (direita - esquerda) * veloc;
+		vVeloc = (baixo - cima) * veloc;	
+	*/
+	
+	hVeloc = (direita - esquerda);
+	vVeloc = (baixo - cima);
+	
+	velocDir = point_direction(x, y, x + hVeloc, y + vVeloc);
+	
+	if(hVeloc != 0 or vVeloc != 0){
+		veloc = 2;
+	}else{
+		veloc = 0;
+	}
+	
+	hVeloc = lengthdir_x(veloc, velocDir);
+	vVeloc = lengthdir_y(veloc, velocDir);
+	
+	PlayerColisao();
+
+	dir = floor((point_direction(x, y, mouse_x, mouse_y) +45) / 90);	
 
 	if(hVeloc == 0 and vVeloc == 0){
 		switch dir{
@@ -70,10 +88,14 @@ function MovimentoPlayer(){
 		}	
 	}
 	
-	if(mouse_check_button_pressed(mb_right)){
-		alarm[0] = 12;
-		direcaoTransporte = point_direction(x, y, mouse_x, mouse_y);
-		estado = Transport; 		
+	if(resistencia >= 10){
+		if(mouse_check_button_pressed(mb_right)){
+			resistencia -= 10;
+			alarm[1] = 180;
+			alarm[0] = 12;
+			direcaoTransporte = point_direction(x, y, mouse_x, mouse_y);
+			estado = Transport; 		
+		}
 	}
 }
 
@@ -84,6 +106,6 @@ function Transport(){
 	x += hVeloc;
 	y += vVeloc;
 	
-	var transpIntancia = instance_create_layer(x, y, layer, odjTransporte);
+	var transpIntancia = instance_create_layer(x, y, "Instances", odjTransporte);
 	transpIntancia.sprite_index = sprite_index;
 }
