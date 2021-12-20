@@ -68,3 +68,11 @@ function SlimePerseguindo(){
 		alarm[0] = irandom_range(120, 240);
 	}
 }
+
+function SlimeTomandoDano(){
+	empurrarVeloc = lerp(empurrarVeloc, 0, 0.2);
+	
+	hVeloc = lengthdir_x(empurrarVeloc, empurrarDir);
+	vVeloc = lengthdir_y(empurrarVeloc, empurrarDir);
+	Colisao();
+}

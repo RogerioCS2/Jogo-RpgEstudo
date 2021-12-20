@@ -19,3 +19,5 @@ estado = MovimentoPlayer;
 
 resitenciaMaxima = 100;
 resistencia = resitenciaMaxima;
+dano = 1;
+atacar = false;

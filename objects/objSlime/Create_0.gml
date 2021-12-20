@@ -14,3 +14,7 @@ alarm[0] = 1;
 velocPerseg = 0.5;
 distVisao = 50;
 distPerdaVisao = 100;
+vida = 5;
+empurrarDir = 0;
+empurrarVeloc = 0;
+tomandoDano = false;

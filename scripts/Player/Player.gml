@@ -69,7 +69,7 @@ function MovimentoPlayer(){
 			break
 		}
 	}else{
-			switch dir{
+		switch dir{
 			case 0:
 				sprite_index = sprCorrendoDireita;		
 			break
@@ -97,15 +97,67 @@ function MovimentoPlayer(){
 			estado = Transport; 		
 		}
 	}
+	
+	if(mouse_check_button_pressed(mb_left)){
+		image_index = 0;
+		switch dir{
+			case 0:
+				sprite_index = sprAtacandoDireita;		
+			break
+			case 1:	
+				sprite_index = sprAtacandoCima;
+			break
+			case 2:
+				sprite_index = sprAtacandoEsquerda;
+			break
+			case 3:	
+				sprite_index = sprAtacandoBaixo;
+			break
+			default:
+				sprite_index = sprAtacandoDireita;
+			break
+		}
+		estado = PersonagemAtacando;
+	}
 }
 
 function Transport(){
 	hVeloc = lengthdir_x(velocidadeTransporte, direcaoTransporte); 	
 	vVeloc = lengthdir_y(velocidadeTransporte, direcaoTransporte);
 	
-	x += hVeloc;
-	y += vVeloc;
+	PlayerColisao();
 	
 	var transpIntancia = instance_create_layer(x, y, "Instances", odjTransporte);
 	transpIntancia.sprite_index = sprite_index;
 }
+
+function PersonagemAtacando(){
+	if(image_index >= 1){
+		if(atacar == false){
+			switch dir{
+				case 0:
+					instance_create_layer(x + 10, y, "Instances", objColisaoAtaque);		
+				break
+				case 1:
+					instance_create_layer(x, y - 10, "Instances", objColisaoAtaque);		
+				break
+				case 2:
+					instance_create_layer(x - 10, y, "Instances", objColisaoAtaque);		
+				break
+				case 3:
+					instance_create_layer(x, y + 10, "Instances", objColisaoAtaque);		
+				break
+				default:
+					instance_create_layer(x + 10, y, "Instances", objColisaoAtaque);		
+				break
+			}
+			atacar = true;
+		}
+	}
+	
+	if (FimAnimacao()){
+		estado = MovimentoPlayer;	
+		atacar = false;
+	}
+}
+

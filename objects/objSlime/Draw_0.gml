@@ -1,6 +1,14 @@
 /// @description
-draw_sprite(sprSombraSlime, 0, x, y + 3);
-draw_self();
+
+if(tomandoDano){
+	gpu_set_fog(true, c_red, 0, 0);
+	draw_sprite(sprSombraSlime, 0, x, y + 6);
+	draw_self();
+	gpu_set_fog(false, c_red, 0, 0);
+}else{
+	draw_sprite(sprSombraSlime, 0, x, y + 6);
+	draw_self();	
+}
 
 if(destinoX < x){
 	image_xscale = -1;	

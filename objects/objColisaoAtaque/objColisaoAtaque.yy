@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprSlimeAndando",
-    "path": "sprites/sprSlimeAndando/sprSlimeAndando.yy",
+    "name": "sprColisaoAtaque",
+    "path": "sprites/sprColisaoAtaque/sprColisaoAtaque.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,20 +21,18 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":1,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objSlime","path":"objects/objSlime/objSlime.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Inimigos",
-    "path": "folders/Objetos/Inimigos.yy",
+    "name": "Player",
+    "path": "folders/Objetos/Player.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objSlime",
+  "name": "objColisaoAtaque",
   "tags": [],
   "resourceType": "GMObject",
 }
