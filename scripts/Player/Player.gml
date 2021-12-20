@@ -122,6 +122,7 @@ function MovimentoPlayer(){
 }
 
 function Transport(){
+	tomandoDano = false;
 	hVeloc = lengthdir_x(velocidadeTransporte, direcaoTransporte); 	
 	vVeloc = lengthdir_y(velocidadeTransporte, direcaoTransporte);
 	
@@ -158,6 +159,17 @@ function PersonagemAtacando(){
 	if (FimAnimacao()){
 		estado = MovimentoPlayer;	
 		atacar = false;
+	}
+}
+
+function PlayerTomandoDano(){
+	if(alarm[2] > 0){
+		hVeloc = lengthdir_x(3, empurrarDir);
+		vVeloc = lengthdir_y(3, empurrarDir);
+		
+		PlayerColisao();
+	}else{
+		estado = MovimentoPlayer; 
 	}
 }
 

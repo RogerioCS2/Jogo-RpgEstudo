@@ -21,3 +21,9 @@ resitenciaMaxima = 100;
 resistencia = resitenciaMaxima;
 dano = 1;
 atacar = false;
+vidaMaxima = 20;
+vida = vidaMaxima;
+tomandoDano = true;
+empurrarDir = 0;
+efeitoDano = -1;
+
