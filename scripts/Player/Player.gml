@@ -9,7 +9,7 @@ function PlayerColisao(){
 	}
 
 	if(place_meeting(x, y + vVeloc, objParede)){
-		while !place_meeting(x, y + sign(hVeloc), objParede){
+		while !place_meeting(x, y + sign(vVeloc), objParede){
 			y += sign(vVeloc);			
 		}
 		vVeloc = 0;	
