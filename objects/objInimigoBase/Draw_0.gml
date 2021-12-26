@@ -2,11 +2,11 @@
 
 if(tomandoDano){
 	gpu_set_fog(true, c_red, 0, 0);
-	draw_sprite(sprSombraSlime, 0, x, y + 6);
+	draw_sprite(sombra, image_index, x, y + 6);
 	draw_self();
 	gpu_set_fog(false, c_red, 0, 0);
 }else{
-	draw_sprite(sprSombraSlime, 0, x, y + 6);
+	draw_sprite(sombra, image_index, x, y + 6);
 	draw_self();	
 }
 
