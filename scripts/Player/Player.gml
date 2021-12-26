@@ -99,25 +99,31 @@ function MovimentoPlayer(){
 	}
 	
 	if(mouse_check_button_pressed(mb_left)){
-		image_index = 0;
-		switch dir{
-			case 0:
-				sprite_index = sprAtacandoDireita;		
-			break
-			case 1:	
-				sprite_index = sprAtacandoCima;
-			break
-			case 2:
-				sprite_index = sprAtacandoEsquerda;
-			break
-			case 3:	
-				sprite_index = sprAtacandoBaixo;
-			break
-			default:
-				sprite_index = sprAtacandoDireita;
-			break
+		if(arma == Armas.espada){
+			image_index = 0;
+			switch dir{
+				case 0:
+					sprite_index = sprAtacandoDireita;		
+				break
+				case 1:	
+					sprite_index = sprAtacandoCima;
+				break
+				case 2:
+					sprite_index = sprAtacandoEsquerda;
+				break
+				case 3:	
+					sprite_index = sprAtacandoBaixo;
+				break
+				default:
+					sprite_index = sprAtacandoDireita;
+				break
+			}
+			estado = PersonagemAtacando;
+		}else if(arma == Armas.arco){
+			image_index = 0;
+			estado = PersonagemArco;
+			
 		}
-		estado = PersonagemAtacando;
 	}
 }
 
@@ -171,5 +177,46 @@ function PlayerTomandoDano(){
 	}else{
 		estado = MovimentoPlayer; 
 	}
+}
+
+function PersonagemArco(){
+	dir = floor((point_direction(x, y, mouse_x, mouse_y) +45) / 90);
+	
+			switch dir{
+			case 0:
+				sprite_index = sprPersonagemArcoDireita;		
+			break
+			case 1:	
+				sprite_index = sprPersonagemArcoCima;
+			break
+			case 2:
+				sprite_index = sprPersonagemArcoEsquerda;
+			break
+			case 3:	
+				sprite_index = sprPersonagemArcoBaixo;
+			break
+			default:
+				sprite_index = sprPersonagemArcoDireita;
+			break
+		}
+		
+		if(FimAnimacao()){
+			image_index = 4;			
+		}
+		
+		if(mouse_check_button_released(mb_left)){
+			if(image_index >= 4){
+				var direcao = point_direction(x, y, mouse_x, mouse_y);
+				var direcaoX = lengthdir_x(5, direcao); 
+				var direcaoY = lengthdir_y(5, direcao); 
+				var instancia = instance_create_layer(x + direcaoX, y + direcaoY, "Instances", objFlecha);
+				instancia.direction = direcao;
+				instancia.image_angle = direcao;
+				instancia.speed = 12;	
+				estado = MovimentoPlayer;
+			}else{
+				estado = MovimentoPlayer;
+			}			
+		}
 }
 

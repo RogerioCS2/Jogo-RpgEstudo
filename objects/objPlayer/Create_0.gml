@@ -1,4 +1,9 @@
 /// @description Variaveis e Funções
+enum Armas{
+	espada,
+	arco,
+	tamanho,
+}
 
 direita = -1;
 cima = -1;
@@ -17,6 +22,7 @@ atacar = false;
 tomandoDano = true;
 resistencia = 0;
 level = 1;
+arma = 0;
 
 estado = MovimentoPlayer;
 
