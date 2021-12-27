@@ -20,6 +20,13 @@ if(inventario == true){
 			draw_sprite_ext(sprInventarioSeletor, 0, slotsX, slotsY, escala, escala, 0, c_white, 1);
 		}
 		
+		if (gridItens[# Informacoes.Itens, i] != -1){
+			draw_sprite_ext(sprItens, gridItens[# 0, i], slotsX, slotsY, escala, escala, 0, c_white, 1);
+			//draw_set_font(fnt_dano);
+			//draw_set_align(fa_center);	
+			draw_text(slotsX + tamanhoSlot - 8, slotsY + tamanhoSlot - 8, gridItens[# Informacoes.Quantidade, i]);						
+		}
+		
 		ix++;
 		if(ix >= slotsH){
 			ix = 0;
@@ -27,4 +34,3 @@ if(inventario == true){
 		}				
 	}	
 }
-
