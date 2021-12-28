@@ -14,6 +14,9 @@ divisoriaSlote = 1 * escala;
 inventarioLarg = sprite_get_width(sprInventario) * escala;
 inventarioAlt = sprite_get_height(sprInventario) * escala;
 
+itemSelecionado = -1;
+posicaoSelecionada = -1;
+
 enum ArmasInventario{
 	Espada,
 	Arco,
@@ -39,5 +42,5 @@ gridItens[# Informacoes.Quantidade, 1] = 2;
 gridItens[# Informacoes.Itens, 2] = ArmasInventario.Cajado;
 gridItens[# Informacoes.Quantidade, 2] = 1;
 
-gridItens[# Informacoes.Itens, 4] = ArmasInventario.Arco;
-gridItens[# Informacoes.Quantidade, 4] = 2;
+gridItens[# Informacoes.Itens, 3] = ArmasInventario.Arco;
+gridItens[# Informacoes.Quantidade, 3] = 1;

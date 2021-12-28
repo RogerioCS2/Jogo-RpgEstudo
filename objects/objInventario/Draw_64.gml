@@ -18,19 +18,67 @@ if(inventario == true){
 		
 		if(point_in_rectangle(mouseX, mouseY, slotsX, slotsY, slotsX + tamanhoSlot, slotsY + tamanhoSlot)){
 			draw_sprite_ext(sprInventarioSeletor, 0, slotsX, slotsY, escala, escala, 0, c_white, 1);
+			
+			if(mouse_check_button_pressed(mb_left)){				
+				if (itemSelecionado == -1){					
+					show_debug_message(gridItens[# Informacoes.Itens, i]);
+					itemSelecionado = gridItens[# Informacoes.Itens, i];
+					posicaoSelecionada = i;					
+				}else{
+					show_debug_message(gridItens[# Informacoes.Itens, i]);
+				
+					if(itemSelecionado == gridItens[# Informacoes.Itens, i] and posicaoSelecionada != i){						
+						gridItens[# Informacoes.Quantidade, i] += gridItens[# Informacoes.Quantidade, posicaoSelecionada];
+						
+						gridItens[# Informacoes.Itens, posicaoSelecionada] = -1;
+						gridItens[# Informacoes.Quantidade, posicaoSelecionada] = -1;
+						
+						itemSelecionado = -1;
+						posicaoSelecionada = -1;
+					}else if(gridItens[# Informacoes.Itens, i] == -1){
+						gridItens[# Informacoes.Itens, i] = gridItens[# Informacoes.Itens, posicaoSelecionada];
+						gridItens[# Informacoes.Quantidade, i] = gridItens[# Informacoes.Quantidade, posicaoSelecionada];
+						
+						gridItens[# Informacoes.Itens, posicaoSelecionada] = -1;
+						gridItens[# Informacoes.Quantidade, posicaoSelecionada] = -1;
+						
+						itemSelecionado = -1;
+						posicaoSelecionada = -1;
+					}else if(gridItens[# Informacoes.Itens, posicaoSelecionada] != gridItens[# Informacoes.Itens, i]){
+						var item = gridItens[# Informacoes.Itens, i];
+						var quantidade = gridItens[# Informacoes.Quantidade, i];
+						
+						gridItens[# Informacoes.Itens, i] = gridItens[# Informacoes.Itens, posicaoSelecionada];
+						gridItens[# Informacoes.Quantidade, i] = gridItens[# Informacoes.Quantidade, posicaoSelecionada];
+						
+						gridItens[# Informacoes.Itens, posicaoSelecionada] = item;
+						gridItens[# Informacoes.Itens, posicaoSelecionada] = quantidade;
+						
+						itemSelecionado = -1;
+						posicaoSelecionada = -1;						
+					}					
+				}				
+			}
 		}
 		
 		if (gridItens[# Informacoes.Itens, i] != -1){
-			draw_sprite_ext(sprItens, gridItens[# 0, i], slotsX, slotsY, escala, escala, 0, c_white, 1);
-			//draw_set_font(fnt_dano);
-			//draw_set_align(fa_center);	
-			draw_text(slotsX + tamanhoSlot - 8, slotsY + tamanhoSlot - 8, gridItens[# Informacoes.Quantidade, i]);						
-		}
+			draw_sprite_ext(sprItens, gridItens[# Informacoes.Itens, i], slotsX, slotsY, escala, escala, 0, c_white, 1);
+			draw_text(slotsX + tamanhoSlot - 8, slotsY + tamanhoSlot - 8, gridItens[# Informacoes.Quantidade, i]);
+		}		
 		
 		ix++;
 		if(ix >= slotsH){
 			ix = 0;
 			iy++;
 		}				
+	}
+	
+	if(mouse_check_button_pressed(mb_right)){
+		itemSelecionado = -1;
+		posicaoSelecionada  = -1;
+	}
+	
+	if(itemSelecionado != -1){
+		draw_sprite_ext(sprItens, itemSelecionado, mouseX, mouseY, escala, escala, 0, c_white, 0.5);
 	}	
 }
