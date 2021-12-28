@@ -24,3 +24,19 @@ function FimAnimacao(){
     if(argument_count > 2) _spd = argument[2];
     return _image + _spd >= sprite_get_number(_sprite);			
 }
+
+function AdicionaItens(){
+	///@arg Itens
+	///@arg Quantidade
+	///@arg Sprite
+	
+	var grid = objInventario.gridItens;
+	var checagem = 0;
+	while (grid[# Informacoes.Itens, checagem] != -1){
+		checagem++;		
+	}
+	
+	grid[# 0, checagem] = argument[0];
+	grid[# 1, checagem] = argument[1];
+	grid[# 2, checagem] = argument[2];
+}

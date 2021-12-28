@@ -12,7 +12,7 @@ if(inventario == true){
 	
 	var ix = 0;
 	var iy = 0;	
-	for(var i = 0; i < totalSlotes; i++){
+	for(var i = 0; i < totalSlotes; i++){	
 		var slotsX = pontoX + inventarioX +((tamanhoSlot + divisoriaSlote) * ix);
 		var slotsY = pontoY + inventarioY +((tamanhoSlot + divisoriaSlote) * iy);
 		
@@ -27,7 +27,7 @@ if(inventario == true){
 				}else{
 					show_debug_message(gridItens[# Informacoes.Itens, i]);
 				
-					if(itemSelecionado == gridItens[# Informacoes.Itens, i] and posicaoSelecionada != i){						
+					if(itemSelecionado == gridItens[# Informacoes.Itens, i] and posicaoSelecionada != i and gridItens[# Informacoes.Sprite, i] == gridItens[# Informacoes.Sprite, posicaoSelecionada]){						
 						gridItens[# Informacoes.Quantidade, i] += gridItens[# Informacoes.Quantidade, posicaoSelecionada];
 						
 						gridItens[# Informacoes.Itens, posicaoSelecionada] = -1;
@@ -38,21 +38,27 @@ if(inventario == true){
 					}else if(gridItens[# Informacoes.Itens, i] == -1){
 						gridItens[# Informacoes.Itens, i] = gridItens[# Informacoes.Itens, posicaoSelecionada];
 						gridItens[# Informacoes.Quantidade, i] = gridItens[# Informacoes.Quantidade, posicaoSelecionada];
+						gridItens[# Informacoes.Sprite, i] = gridItens[# Informacoes.Sprite, posicaoSelecionada];
 						
 						gridItens[# Informacoes.Itens, posicaoSelecionada] = -1;
 						gridItens[# Informacoes.Quantidade, posicaoSelecionada] = -1;
+						gridItens[# Informacoes.Sprite, posicaoSelecionada] = -1;	
 						
 						itemSelecionado = -1;
 						posicaoSelecionada = -1;
-					}else if(gridItens[# Informacoes.Itens, posicaoSelecionada] != gridItens[# Informacoes.Itens, i]){
+						
+					}else if(gridItens[# Informacoes.Itens, posicaoSelecionada] != gridItens[# Informacoes.Itens, i] or  gridItens[# Informacoes.Sprite, posicaoSelecionada] != gridItens[# Informacoes.Sprite, i]){
 						var item = gridItens[# Informacoes.Itens, i];
 						var quantidade = gridItens[# Informacoes.Quantidade, i];
+						var imagem = gridItens[# Informacoes.Sprite, i];
 						
 						gridItens[# Informacoes.Itens, i] = gridItens[# Informacoes.Itens, posicaoSelecionada];
 						gridItens[# Informacoes.Quantidade, i] = gridItens[# Informacoes.Quantidade, posicaoSelecionada];
+						gridItens[# Informacoes.Sprite, i] = gridItens[# Informacoes.Sprite, posicaoSelecionada];
 						
 						gridItens[# Informacoes.Itens, posicaoSelecionada] = item;
-						gridItens[# Informacoes.Itens, posicaoSelecionada] = quantidade;
+						gridItens[# Informacoes.Quantidade, posicaoSelecionada] = quantidade;
+						gridItens[# Informacoes.Sprite, posicaoSelecionada] = imagem;
 						
 						itemSelecionado = -1;
 						posicaoSelecionada = -1;						
@@ -60,9 +66,10 @@ if(inventario == true){
 				}				
 			}
 		}
+		var _sprite = gridItens[# Informacoes.Sprite, i];
 		
 		if (gridItens[# Informacoes.Itens, i] != -1){
-			draw_sprite_ext(sprItens, gridItens[# Informacoes.Itens, i], slotsX, slotsY, escala, escala, 0, c_white, 1);
+			draw_sprite_ext(_sprite, gridItens[# Informacoes.Itens, i], slotsX, slotsY, escala, escala, 0, c_white, 1);
 			draw_text(slotsX + tamanhoSlot - 8, slotsY + tamanhoSlot - 8, gridItens[# Informacoes.Quantidade, i]);
 		}		
 		
@@ -79,6 +86,6 @@ if(inventario == true){
 	}
 	
 	if(itemSelecionado != -1){
-		draw_sprite_ext(sprItens, itemSelecionado, mouseX, mouseY, escala, escala, 0, c_white, 0.5);
+		draw_sprite_ext(_sprite, itemSelecionado, mouseX, mouseY, escala, escala, 0, c_white, 0.5);
 	}	
 }
